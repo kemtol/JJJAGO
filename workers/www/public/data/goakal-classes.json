@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-04-23T03:05:32.595Z",
+  "source": {
+    "base_url": "https://goakal.com",
+    "endpoints": [
+      "/api/schools/jagoalgoid/landing-info",
+      "/api/schools/jagoalgoid/classes",
+      "/api/generalClass/{generalClassCuid}?promo=&referral="
+    ]
+  },
+  "school": {
+    "id": "x2fdousgwl2a6q6wif1j4lpv",
+    "url_id": "jagoalgoid",
+    "name": "jagoalgo.id",
+    "description": "Membantu trader membuat aplikasi berbasis algo dan analisa otomatis berbasis AI."
+  },
+  "class_levels": [
+    {
+      "level_key": "fundamental",
+      "parent_class": {
+        "title": "Fundamental Algo Trading: Futures, CFD, Saham dan Crypto",
+        "url_id": "fundamental-algo-trading",
+        "general_class_cuid": "cmo2l66x40000jm044obqw85i",
+        "parent_page_url": "https://goakal.com/jagoalgoid/fundamental-algo-trading",
+        "starting_price": 97200,
+        "currency": "IDR",
+        "modules_count": 3
+      },
+      "modular_classes": [
+        {
+          "short_id": "0p1wj",
+          "title": "30 Min: Kelas penasaran! gwa bisa ga ya? apaan sih nih?",
+          "price": 97200,
+          "discounted_price": null,
+          "currency": "IDR",
+          "apply_url": "https://goakal.com/jagoalgoid/fundamental-algo-trading/0p1wj/apply"
+        },
+        {
+          "short_id": "s7wf3",
+          "title": "2 + 1 Hour: Kelas one-on-one langsung praktek",
+          "price": 396000,
+          "discounted_price": null,
+          "currency": "IDR",
+          "apply_url": "https://goakal.com/jagoalgoid/fundamental-algo-trading/s7wf3/apply"
+        },
+        {
+          "short_id": "v8sy8",
+          "title": "1 + 1 Hour: Kelas one-on-one langsung praktek",
+          "price": 296000,
+          "discounted_price": null,
+          "currency": "IDR",
+          "apply_url": "https://goakal.com/jagoalgoid/fundamental-algo-trading/v8sy8/apply"
+        }
+      ]
+    },
+    {
+      "level_key": "intermediate",
+      "parent_class": {
+        "title": "Intermediate Algo Trading: Saham IDX",
+        "url_id": "intermediate-algo-idx",
+        "general_class_cuid": "cmo2xgt16000ll904a47pffz2",
+        "parent_page_url": "https://goakal.com/jagoalgoid/intermediate-algo-idx",
+        "starting_price": 150000,
+        "currency": "IDR",
+        "modules_count": 3
+      },
+      "modular_classes": [
+        {
+          "short_id": "jwgl7",
+          "title": "1 + 1 Hour: Basic IDX Algo Trade",
+          "price": 396000,
+          "discounted_price": null,
+          "currency": "IDR",
+          "apply_url": "https://goakal.com/jagoalgoid/intermediate-algo-idx/jwgl7/apply"
+        },
+        {
+          "short_id": "jku2r",
+          "title": "2 + 1 Hour: Intermediete IDX Algo Trade",
+          "price": 499000,
+          "discounted_price": null,
+          "currency": "IDR",
+          "apply_url": "https://goakal.com/jagoalgoid/intermediate-algo-idx/jku2r/apply"
+        },
+        {
+          "short_id": "t7xmy",
+          "title": "Additional Hour: Handson project anda",
+          "price": 150000,
+          "discounted_price": null,
+          "currency": "IDR",
+          "apply_url": "https://goakal.com/jagoalgoid/intermediate-algo-idx/t7xmy/apply"
+        }
+      ]
+    }
+  ]
+}

@@ -16,8 +16,8 @@
 </head>
 <body>
 
-<!-- STICKY: TICKER + NAVBAR -->
-<div id="sticky-top" style="position:sticky;top:0;z-index:1000;">
+ <!-- HEADER: TICKER + NAVBAR -->
+<div id="header-top">
   <div class="ticker-bar">
     <div class="ticker-track">
       <span class="ticker-item"><b>Limited Term 1 Offer</b> until 27 April 2026 <span class="ticker-sep">✦</span> <span class="ticker-cta">Contact Us <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg></span></span>
@@ -39,7 +39,7 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-lg sticky-top bg-white" style="border-bottom:1px solid #f0f0f0;">
+   <nav class="navbar navbar-expand-lg bg-white" style="border-bottom:1px solid #f0f0f0;">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="/">
         <span class="brand-icon me-2">
@@ -65,7 +65,7 @@
 <script>
   const slugMap = {
     'fundamental-algo-trading': 'https://goakal.com/jagoalgoid/fundamental-algo-trading',
-    'intermediate-algo-trading-saham-idx': 'https://goakal.com/jagoalgoid/intermediate-algo-trading-saham-idx',
+    'intermediate-algo-trading-saham-idx': 'https://goakal.com/jagoalgoid/intermediate-algo-idx',
   };
 
   const slug = new URLSearchParams(window.location.search).get('slug') || '';
@@ -75,7 +75,7 @@
   }
 
   function setIframeHeight() {
-    const h = document.getElementById('sticky-top').offsetHeight;
+    const h = document.getElementById('header-top').offsetHeight;
     const backBar = document.querySelector('.back-bar').offsetHeight;
     document.getElementById('main-iframe').style.height = (window.innerHeight - h - backBar) + 'px';
   }

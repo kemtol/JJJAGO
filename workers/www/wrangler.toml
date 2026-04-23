@@ -4,3 +4,14 @@ compatibility_date = "2025-01-01"
 
 [site]
 bucket = "./public"
+
+[vars]
+GOAKAL_SCHOOL_ID = "jagoalgoid"
+
+[triggers]
+crons = ["0 * * * *"]
+
+[[kv_namespaces]]
+binding = "CLASSES_KV"
+id = "558c84d2498c43be9d23ee45a1983dfb"
+preview_id = "1bdc7d246c8a44e88e810ba311482813"
