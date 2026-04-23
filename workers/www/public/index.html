@@ -609,10 +609,35 @@
         return tags.map((tag) => `<span class="pkg-tag">${escapeHtml(tag)}</span>`).join('');
       }
 
+      function renderSeatBadge(module) {
+        if (!module || !module.is_quota_enabled || typeof module.seats_left !== 'number') return '';
+        return `<span class="pkg-seat-badge">${escapeHtml(module.seats_left)} kursi tersisa</span>`;
+      }
+
+      function renderChecklistItems(module) {
+        const checklist = Array.isArray(module?.checklist) ? module.checklist.filter(Boolean) : [];
+        const fallback = module?.intro_description ? [module.intro_description] : [];
+        const items = (checklist.length > 0 ? checklist : fallback).slice(0, 6);
+        if (items.length === 0) return '';
+        return `
+          <ul class="pkg-feature-list">
+            ${items.map((item) => `
+              <li>
+                <span class="pkg-feature-check"><i class="bi bi-check-lg"></i></span>
+                <span>${escapeHtml(item)}</span>
+              </li>
+            `).join('')}
+          </ul>
+        `;
+      }
+
       function renderModuleCard(level, module, index) {
         const levelLabel = getLevelLabel(level.level_key);
         const title = module?.title || `Kelas ${index + 1}`;
         const applyUrl = module?.apply_url || '#';
+        const tags = [level.level_key || 'level', 'module', module?.short_id || `m${index + 1}`];
+        const seatBadge = renderSeatBadge(module);
+        const introCopy = module?.intro_description ? `<p class="pkg-module-intro">${escapeHtml(module.intro_description)}</p>` : '';
         return `
           <article class="pkg-card pkg-card-class">
             <div class="pkg-brand">
@@ -622,12 +647,13 @@
                 <span class="pkg-brand-pill">Kelas ${index + 1}</span>
               </div>
             </div>
-            <h3 class="pkg-title">${escapeHtml(title)}</h3>
-            <div class="pkg-tags">${renderTags([level.level_key || 'level', 'module', module?.short_id || `m${index + 1}`])}</div>
-            <ul class="pkg-bullets">
-              <li>Modul kelas terpisah dalam track ${escapeHtml(levelLabel.toLowerCase())}.</li>
-              <li>Klik detail untuk daftar dan lihat konfigurasi kelas terbaru.</li>
-            </ul>
+            <div class="pkg-module-title-row">
+              <h3 class="pkg-title">${escapeHtml(title)}</h3>
+              ${seatBadge}
+            </div>
+            <div class="pkg-tags">${renderTags(tags)}</div>
+            ${introCopy}
+            ${renderChecklistItems(module)}
             <div class="pkg-footer">
               <div class="pkg-price">${formatPrice(module?.price)}<span>Kelas ${escapeHtml(levelLabel)}</span></div>
               <a href="${escapeHtml(applyUrl)}" class="btn-join">Detail Kelas <span class="jdot"><i class="bi bi-arrow-right"></i></span></a>

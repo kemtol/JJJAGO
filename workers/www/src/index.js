@@ -52,6 +52,11 @@ function toCurrencyValue(value) {
   return Number.isFinite(num) ? num : null;
 }
 
+function toNumberOrNull(value) {
+  const num = Number(value);
+  return Number.isFinite(num) ? num : null;
+}
+
 async function scrapeClassesSnapshot(schoolId) {
   const [landing, classesResult] = await Promise.all([
     fetchJson(`${GOAKAL_BASE_URL}/api/schools/${schoolId}/landing-info`).catch(() => null),
@@ -87,12 +92,31 @@ async function scrapeClassesSnapshot(schoolId) {
         },
         modular_classes: priceSchemes.map((scheme) => {
           const shortId = normalizeWhitespace(scheme.shortId);
+          const checklist = Array.isArray(scheme.checklistDescription)
+            ? scheme.checklistDescription
+                .map((item) => normalizeWhitespace(item))
+                .filter((item) => item.length > 0)
+            : [];
+          const quotaMax = toNumberOrNull(scheme.quotaMax);
+          const quotaUsed = toNumberOrNull(scheme.quotaUsed);
+          const isQuotaEnabled = Boolean(scheme.isQuotaEnabled);
+          const seatsLeft =
+            isQuotaEnabled && quotaMax !== null && quotaUsed !== null
+              ? Math.max(quotaMax - quotaUsed, 0)
+              : null;
+
           return {
             short_id: shortId,
             title: normalizeWhitespace(scheme.title),
             price: toCurrencyValue(scheme.mainAmount),
             discounted_price: toCurrencyValue(scheme.discountedAmount),
             currency: "IDR",
+            intro_description: normalizeWhitespace(scheme.introDescription),
+            checklist,
+            is_quota_enabled: isQuotaEnabled,
+            quota_max: quotaMax,
+            quota_used: quotaUsed,
+            seats_left: seatsLeft,
             apply_url: `https://goakal.com/${schoolId}/${classUrlId}/${shortId}/apply`,
           };
         }),

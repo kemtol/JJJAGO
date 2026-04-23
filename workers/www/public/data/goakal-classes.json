@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-23T03:05:32.595Z",
+  "generated_at": "2026-04-23T04:48:43.689Z",
   "source": {
     "base_url": "https://goakal.com",
     "endpoints": [
@@ -33,6 +33,15 @@
           "price": 97200,
           "discounted_price": null,
           "currency": "IDR",
+          "intro_description": "",
+          "checklist": [
+            "1 On 1 Class",
+            "Pdf fundamental algo trading dan quantitative analyst"
+          ],
+          "is_quota_enabled": true,
+          "quota_max": 80,
+          "quota_used": 0,
+          "seats_left": 80,
           "apply_url": "https://goakal.com/jagoalgoid/fundamental-algo-trading/0p1wj/apply"
         },
         {
@@ -41,6 +50,17 @@
           "price": 396000,
           "discounted_price": null,
           "currency": "IDR",
+          "intro_description": "",
+          "checklist": [
+            "1 On 1 Class",
+            "Raw Data Broker Summary",
+            "Raw Data Futures Market",
+            "Automated Trading Gold"
+          ],
+          "is_quota_enabled": true,
+          "quota_max": 80,
+          "quota_used": 0,
+          "seats_left": 80,
           "apply_url": "https://goakal.com/jagoalgoid/fundamental-algo-trading/s7wf3/apply"
         },
         {
@@ -49,6 +69,16 @@
           "price": 296000,
           "discounted_price": null,
           "currency": "IDR",
+          "intro_description": "",
+          "checklist": [
+            "1 On 1 Class",
+            "Raw Data Broker Summary",
+            "Raw Data Futures Market"
+          ],
+          "is_quota_enabled": true,
+          "quota_max": 80,
+          "quota_used": 0,
+          "seats_left": 80,
           "apply_url": "https://goakal.com/jagoalgoid/fundamental-algo-trading/v8sy8/apply"
         }
       ]
@@ -71,6 +101,15 @@
           "price": 396000,
           "discounted_price": null,
           "currency": "IDR",
+          "intro_description": "",
+          "checklist": [
+            "One-on-one training basic backtesting",
+            "Broker Summary Raw Data"
+          ],
+          "is_quota_enabled": true,
+          "quota_max": 80,
+          "quota_used": 0,
+          "seats_left": 80,
           "apply_url": "https://goakal.com/jagoalgoid/intermediate-algo-idx/jwgl7/apply"
         },
         {
@@ -79,6 +118,15 @@
           "price": 499000,
           "discounted_price": null,
           "currency": "IDR",
+          "intro_description": "",
+          "checklist": [
+            "Hands on mentoring system building",
+            "One-on-One Trading"
+          ],
+          "is_quota_enabled": true,
+          "quota_max": 80,
+          "quota_used": 0,
+          "seats_left": 80,
           "apply_url": "https://goakal.com/jagoalgoid/intermediate-algo-idx/jku2r/apply"
         },
         {
@@ -87,6 +135,16 @@
           "price": 150000,
           "discounted_price": null,
           "currency": "IDR",
+          "intro_description": "",
+          "checklist": [
+            "Co-Develop",
+            "Advisory",
+            "Bantu coding"
+          ],
+          "is_quota_enabled": false,
+          "quota_max": 0,
+          "quota_used": 0,
+          "seats_left": null,
           "apply_url": "https://goakal.com/jagoalgoid/intermediate-algo-idx/t7xmy/apply"
         }
       ]
