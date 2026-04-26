@@ -45,13 +45,10 @@ Model kemudian memilih 2 atau 3 saham dengan skor tertinggi untuk dibeli.
 
 Grafik di bawah ini mengilustrasikan bagaimana modal Rp10 juta akan bertumbuh jika mengikuti rekomendasi kedua model.
 
-![Perbandingan pertumbuhan modal Model A (Agresif) 100 hari](./pnl_growth_chart_100d.png)
-*Gambar: Model A – dari Rp10 juta menjadi Rp32,6 juta, dengan beberapa kali "jurang" penurunan yang dalam.*
-
-![Perbandingan pertumbuhan modal Model B (Terkendali) 100 hari](./pnl_growth_chart_100d_2.png)
-*Gambar: Model B – pertumbuhan lebih landai ke Rp21,5 juta, penurunan lebih dangkal.*
-
-> **Catatan:** Dua gambar di atas menunjukkan masing-masing model secara terpisah. Model A (atas) naik lebih curam tapi turun lebih dalam. Model B (bawah) lebih stabil.
+![Perbandingan pertumbuhan modal 100 hari](./pnl_growth_chart_100d.png)
+*Gambar: Grafik garis dengan sumbu X = Hari ke-1 sampai ke-100, sumbu Y = Nilai Portofolio (dalam Juta Rupiah).*
+- **Garis Merah (Model Agresif):** Naik sangat curam dari Rp10 juta menjadi lebih dari Rp32 juta, namun dengan beberapa kali "jurang" penurunan yang dalam (misal, di hari ke-70 turun dari Rp25 juta ke Rp15 juta).
+- **Garis Biru (Model Terkendali):** Naik lebih landai dan stabil dari Rp10 juta menjadi sekitar Rp21,5 juta, dengan "jurang" penurunan yang jauh lebih dangkal.
 
 ### 3.2. Ukuran Kualitas Keuntungan: Sharpe Ratio
 
@@ -79,12 +76,10 @@ Dalam dunia investasi, bukan hanya seberapa besar untung yang penting, tetapi ju
 > - **Ulcer Index (Indeks "Maag"):** Bayangkan ini sebagai tingkat stres Anda saat melihat portofolio merah. Model B memiliki indeks stres yang jauh lebih rendah (11.12%) daripada Model A (19.58%).
 > - **Calmar Ratio (Rasio Imbalan-Penderitaan):** Membandingkan keuntungan tahunan dengan *max drawdown*. Model B (8.35) lebih unggul dari Model A (7.00), menunjukkan bahwa untuk setiap 1% risiko penurunan, Model B memberikan imbalan yang lebih besar.
 
-![Histogram distribusi max drawdown - Model A (Agresif)](./monte_maxdd_hist.png)
-*Gambar: Histogram Model A – lebih lebar, ekor sampai -60%, sering mengalami drawdown besar.*
-
-![Histogram distribusi max drawdown - Model B (Terkendali)](./monte_maxdd_hist_2.png)
-*Gambar: Histogram Model B – lebih sempit, terpusat di -25%, ekor pendek.*
-
+![Histogram distribusi max drawdown](./monte_maxdd_hist.png)
+*Gambar: Dua histogram berdampingan. Sumbu X = Persentase Max Drawdown (dari -80% hingga 0%), Sumbu Y = Frekuensi (seberapa sering terjadi dalam 10.000 simulasi).*
+- Histogram Model A lebih lebar dan memiliki "ekor gemuk" di sebelah kiri (sering mengalami penurunan -40% hingga -60%).
+- Histogram Model B lebih sempit dan terpusat di sekitar -25%, dengan ekor kiri yang jauh lebih pendek.
 *Pesan Utama:* Dalam skenario terburuk sekalipun, Model B cenderung membatasi kerugian Anda di kisaran -25% hingga -40%, sementara Model A bisa menyeret Anda ke dalam penurunan lebih dari -50%.
 
 ---
@@ -102,11 +97,8 @@ Tidak ada model yang sempurna. Kedua model akan mengalami fase di mana kinerjany
 
 > **Interpretasi:** Angka P90 pada Max Drawdown adalah temuan kunci. Artinya, dalam 90% periode 20-hari, **Model B tidak pernah mengalami penurunan lebih dari -3.6%**. Sebaliknya, pada 10% periode terburuk, Model A bisa anjlok hingga -24% hanya dalam 20 hari. Ini menegaskan bahwa **Model B jauh lebih stabil dalam jangka pendek**.
 
-![Perbandingan performa 20 hari terakhir - Model A](./pnl_growth_chart_last20d.png)
-*Gambar: Rolling 20-day performance Model A – fluktuasi besar.*
-
-![Perbandingan performa 20 hari terakhir - Model B](./pnl_growth_chart_last20d_2.png)
-*Gambar: Rolling 20-day performance Model B – lebih stabil, penurunan dangkal.*
+![Perbandingan performa 20 hari terakhir](./pnl_growth_chart_last20d.png)
+*Gambar: Visual rolling performance 20 hari untuk melihat fase naik-turun jangka pendek tiap model.*
 
 ---
 
@@ -121,19 +113,15 @@ Kita tidak bisa memprediksi masa depan, tapi kita bisa "bermain perang-perangan"
 | **Median Keuntungan Akhir Tahun** | +1.445% | +592% |
 | **Skenario Terburuk (P95 Max Drawdown)** | -68.0% | -40.2% |
 
-![Kurva CDF hasil Monte Carlo - Model A](./monte_return_cdf.png)
-*Gambar: CDF Model A – kurva di kanan (untung besar) tapi ekor kiri (rugi) masih ada.*
-
-![Kurva CDF hasil Monte Carlo - Model B](./monte_return_cdf_2.png)
-*Gambar: CDF Model B – lebih rapat, probabilitas rugi sangat kecil.*
+![Kurva CDF hasil Monte Carlo](./monte_return_cdf.png)
+*Gambar: Dua kurva CDF. Sumbu X = Keuntungan Terminal (dari 0x hingga 20x modal), Sumbu Y = Probabilitas Kumulatif (0% hingga 100%).*
+- Kurva Model A berada di sebelah kanan (lebih banyak skenario untung besar), tetapi juga memiliki ekor di kiri (skenario untung kecil/rugi).
+- Kurva Model B juga di kanan, tetapi lebih "terkumpul" rapat, menunjukkan kepastian hasil yang lebih tinggi.
 
 > **Peringatan Keras untuk Model A:** Meskipun potensi keuntungannya menggiurkan, hasil simulasi menunjukkan bahwa **hampir pasti (92% kemungkinan)** Anda akan mengalami masa-masa di mana portofolio Anda anjlok lebih dari 30%. Hanya trader dengan mental baja dan modal yang benar-benar "dingin" yang sanggup melewati ini tanpa panik dan menarik dana di saat yang salah.
 
-![Fan chart simulasi ekuitas - Model A](./monte_equity_fan.png)
-*Gambar: Fan chart Model A – sebaran lintasan sangat lebar.*
-
-![Fan chart simulasi ekuitas - Model B](./monte_equity_fan_2.png)
-*Gambar: Fan chart Model B – sebaran lebih sempit, lebih dapat diprediksi.*
+![Fan chart simulasi ekuitas](./monte_equity_fan.png)
+*Gambar: Fan chart Monte Carlo untuk melihat sebaran lintasan pertumbuhan modal pada horizon 1 tahun.*
 
 ---
 

@@ -9,30 +9,30 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    /* Clean layout overrides */
+    /* Tambahan minimal untuk menyempurnakan tata letak report viewer */
     .report-layout {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 1.8rem;
       margin: 2rem 0 3rem;
     }
     .report-sidebar {
       flex: 0 0 260px;
-      background: #ffffff;
-      border-radius: 1.25rem;
-      padding: 1rem 0;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.02);
+      background: #fff;
+      border-radius: 1.2rem;
+      padding: 1rem 0.2rem;
+      border: 1px solid #eef2f8;
       align-self: start;
       position: sticky;
-      top: 1.5rem;
+      top: 1.2rem;
     }
     .report-sidebar h2 {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: #5b6e8c;
+      color: #475569;
       font-weight: 800;
-      margin: 0 0 0.9rem 1rem;
+      margin: 0 0 0.75rem 1rem;
     }
     .report-list {
       list-style: none;
@@ -40,22 +40,22 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.15rem;
+      gap: 0.5rem;
     }
     .report-link {
       display: block;
       text-decoration: none;
-      padding: 0.7rem 1rem;
+      padding: 0.65rem 1rem;
       border-left: 3px solid transparent;
-      transition: all 0.12s ease;
-      background: transparent;
+      transition: all 0.15s ease;
+      background: #ffffff;
     }
     .report-link:hover {
-      background: #f8fafc;
+      background: #f9fafb;
       border-left-color: var(--purple);
     }
     .report-link.active {
-      background: #f5f3ff;
+      background: var(--purple-light);
       border-left-color: var(--purple);
     }
     .report-link .title {
@@ -65,21 +65,21 @@
       color: #0f172a;
     }
     .report-link .meta {
-      font-size: 0.68rem;
-      color: #5b6e8c;
+      font-size: 0.7rem;
+      color: #64748b;
     }
     .report-content-wrap {
       flex: 1;
       min-width: 0;
-      background: #ffffff;
-      border-radius: 1.25rem;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.02);
+      background: #fff;
+      border-radius: 1.2rem;
+      border: 1px solid #eef2f8;
       overflow: hidden;
     }
     .report-head {
-      padding: 1rem 1.8rem;
-      border-bottom: 1px solid #eff3f8;
-      background: #ffffff;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #ecf3f9;
+      background: #fefefe;
     }
     .report-head h1 {
       font-size: 1.1rem;
@@ -88,34 +88,29 @@
     }
     .report-head .meta {
       font-size: 0.7rem;
-      color: #5b6e8c;
+      color: #64748b;
     }
     .report-body {
       padding: 1.8rem 2rem;
     }
-    /* Typography for markdown content */
-    .report-content h1 { font-size: 1.55rem; font-weight: 800; margin-top: 1.2rem; margin-bottom: 0.5rem; }
-    .report-content h2 { font-size: 1.2rem; font-weight: 800; margin-top: 1.2rem; margin-bottom: 0.4rem; }
-    .report-content h3 { font-size: 1rem; font-weight: 700; margin-top: 1rem; }
+    .report-content h1 { font-size: 1.5rem; font-weight: 800; margin-top: 1rem; }
+    .report-content h2 { font-size: 1.2rem; font-weight: 800; margin-top: 1rem; }
+    .report-content h3 { font-size: 1rem; font-weight: 700; }
     .report-content p, .report-content li { font-size: 0.9rem; line-height: 1.6; color: #1e293b; }
-    .report-content pre { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 1rem; overflow-x: auto; margin: 1rem 0; }
+    .report-content pre { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 1rem; overflow-x: auto; }
     .report-content code { background: #f1f5f9; padding: 0.2rem 0.3rem; border-radius: 6px; font-size: 0.85rem; }
-    .report-content img { max-width: 100%; border-radius: 12px; margin: 1rem 0; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-    .report-content blockquote { border-left: 3px solid var(--purple); background: #f8fafc; padding: 0.5rem 1rem; margin: 1rem 0; border-radius: 0 12px 12px 0; }
-    .report-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
-    .report-content th, .report-content td { border: 1px solid #e2e8f0; padding: 0.5rem; text-align: left; }
-    .status-box { background: #f8fafc; border-radius: 1rem; padding: 1.5rem; text-align: center; color: #475569; font-size: 0.9rem; }
+    .report-content img { max-width: 100%; border-radius: 12px; margin: 1rem 0; border: 1px solid #e2e8f0; }
+    .status-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.2rem; text-align: center; }
     @media (max-width: 768px) {
       .report-layout { flex-direction: column; }
       .report-sidebar { flex: auto; position: static; }
       .report-body { padding: 1.2rem; }
-      .report-head { padding: 0.8rem 1.2rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- TICKER BAR (sama persis dengan index) -->
+  <!-- TICKER BAR (sama persis dengan index.html) -->
   <div class="ticker-bar">
     <div class="ticker-track">
       <span class="ticker-item"><b>Limited Term 1 Offer</b> until 27 April 2026 <span class="ticker-sep">✦</span> <span class="ticker-cta">Contact Us <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg></span></span>
@@ -137,7 +132,7 @@
     </div>
   </div>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR (standar) -->
   <nav class="navbar navbar-expand-lg bg-white">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="/">
@@ -152,20 +147,20 @@
     </div>
   </nav>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN CONTENT (report viewer terintegrasi) -->
   <div class="container">
     <div class="report-layout">
-      <!-- SIDEBAR REPORT LIST -->
+      <!-- SIDEBAR -->
       <aside class="report-sidebar">
         <h2>Penelitian & Report</h2>
         <ul class="report-list" id="reportList"></ul>
       </aside>
 
-      <!-- REPORT VIEWER -->
+      <!-- KONTEN REPORT -->
       <section class="report-content-wrap">
         <div class="report-head">
           <h1 id="reportTitle">Machine Learning Report</h1>
-          <div class="meta" id="reportMeta">Pilih report dari daftar kiri</div>
+          <div class="meta" id="reportMeta">Pilih report dari daftar kiri atau gunakan parameter <code>?id=</code></div>
         </div>
         <div class="report-body">
           <article class="report-content" id="reportContent">
@@ -176,7 +171,7 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (sama dengan index) -->
   <footer>
     <div class="container">
       <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 py-1">
@@ -212,20 +207,19 @@
       }
 
       function setStatus(message, isError = false) {
-        reportContentEl.innerHTML = `<div class="status-box">${escapeHtml(message)}</div>`;
+        reportContentEl.innerHTML = `<div class="status-box ${isError ? 'error' : ''}" style="border-color:#e2e8f0;">${escapeHtml(message)}</div>`;
       }
 
       function normalizeId(value) {
         return /^[a-z0-9][a-z0-9-_]{1,120}$/i.test(value || '') ? value : null;
       }
 
-      // Perbaikan path gambar: semua gambar diarahkan ke folder /reports/
-      function fixImageUrl(rawUrl, markdownBasePath) {
+      function resolveAssetUrl(markdownUrl, rawUrl) {
         if (!rawUrl) return rawUrl;
-        if (/^(https?:|data:|mailto:|#)/i.test(rawUrl)) return rawUrl;
-        if (rawUrl.startsWith('/')) return rawUrl; // absolute path, biarkan
-        // relative path, kita asumsikan berada di /reports/
-        return `/reports/${rawUrl}`;
+        if (/^(https?:|data:|mailto:|#|\/)/i.test(rawUrl)) return rawUrl;
+        try {
+          return new URL(rawUrl, markdownUrl).toString();
+        } catch { return rawUrl; }
       }
 
       async function fetchCatalog() {
@@ -239,19 +233,17 @@
         const res = await fetch(mdPath, { headers: { accept: 'text/markdown,text/plain' } });
         if (!res.ok) throw new Error(`Markdown tidak ditemukan: ${mdPath}`);
         const markdownText = await res.text();
-
         const renderer = new marked.Renderer();
         renderer.link = function ({ href, title, text }) {
-          const safeHref = fixImageUrl(href, mdPath);
+          const safeHref = resolveAssetUrl(mdPath, href);
           const safeTitle = title ? ` title="${escapeHtml(title)}"` : '';
           return `<a href="${escapeHtml(safeHref)}"${safeTitle} target="_blank" rel="noopener noreferrer">${text}</a>`;
         };
         renderer.image = function ({ href, title, text }) {
-          const safeSrc = fixImageUrl(href, mdPath);
+          const safeSrc = resolveAssetUrl(mdPath, href);
           const safeTitle = title ? ` title="${escapeHtml(title)}"` : '';
-          return `<img src="${escapeHtml(safeSrc)}" alt="${escapeHtml(text || '')}"${safeTitle} loading="lazy" />`;
+          return `<img class="report-image" src="${escapeHtml(safeSrc)}" alt="${escapeHtml(text || '')}"${safeTitle} loading="lazy" />`;
         };
-
         marked.setOptions({ gfm: true, breaks: true, headerIds: true, mangle: false, renderer });
         return marked.parse(markdownText);
       }
@@ -263,7 +255,7 @@
         const safeId = normalizeId(currentId) || firstReport?.id || null;
         const selectedReport = reports.find(item => item.id === safeId) || firstReport;
 
-        // Render sidebar
+        // render list sidebar
         if (reports.length) {
           reportListEl.innerHTML = reports.map(item => `
             <li>
@@ -280,7 +272,7 @@
         if (!selectedReport) {
           reportTitleEl.textContent = 'Machine Learning Report';
           reportMetaEl.textContent = 'Belum ada report terdaftar di katalog.';
-          setStatus('Belum ada report yang dipublikasikan. Tambahkan item di /data/ml-reports.json.');
+          setStatus('Belum ada report yang dipublish. Tambahkan item di /data/ml-reports.json.');
           return;
         }
 

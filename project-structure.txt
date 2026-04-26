@@ -1,0 +1,59 @@
+.
+├── PRD.md
+├── project-structure.txt
+├── README.md
+└── workers
+    └── www
+        ├── _ARCH
+        │   └── daftar-intermediate.html
+        ├── node_modules
+        │   └── @cloudflare
+        │       └── kv-asset-handler
+        │           ├── dist
+        │           │   ├── index.d.ts
+        │           │   ├── index.js
+        │           │   ├── index.js.map
+        │           │   └── metafile-esm.json
+        │           ├── package.json
+        │           ├── README.md
+        │           └── src
+        │               ├── index.ts
+        │               └── types.ts
+        ├── package.json
+        ├── package-lock.json
+        ├── public
+        │   ├── daftar.html
+        │   ├── data
+        │   │   ├── goakal-classes.json
+        │   │   └── ml-reports.json
+        │   ├── img
+        │   │   ├── founder.png
+        │   │   ├── Gemini_Generated_Image_aw8pleaw8pleaw8p.png
+        │   │   ├── kemal-wiryawan-profile-brushed.png
+        │   │   ├── kemal-wiryawan-profile.png
+        │   │   └── member
+        │   │       └── doni-darmawan_MUFG.jpeg
+        │   ├── index.html
+        │   ├── kelas-ai.html
+        │   ├── machine-learning-report.html
+        │   ├── machine-learning-report.html.bak
+        │   ├── reports
+        │   │   ├── kelly_compare_close10_obj_cumret.png
+        │   │   ├── kelly_compare_cumret.png
+        │   │   ├── monte_equity_fan_2.png
+        │   │   ├── monte_equity_fan.png
+        │   │   ├── monte_maxdd_hist_2.png
+        │   │   ├── monte_maxdd_hist.png
+        │   │   ├── monte_return_cdf_2.png
+        │   │   ├── monte_return_cdf.png
+        │   │   ├── pnl_growth_chart_100d_2.png
+        │   │   ├── pnl_growth_chart_100d.png
+        │   │   ├── pnl_growth_chart_last20d_2.png
+        │   │   ├── pnl_growth_chart_last20d.png
+        │   │   └── rekomendasi-berdasarkan-bsjp-2026-04-23.md
+        │   └── style.css
+        ├── src
+        │   └── index.js
+        └── wrangler.toml
+
+15 directories, 42 files

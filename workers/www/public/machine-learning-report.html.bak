@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Machine Learning Report - JagoAlgo.id</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    :root {
+      --accent: #0f766e;
+      --accent-soft: #d9f9f3;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --line: #d8dee8;
+      --bg: #f2f4f7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    .navbar {
+      background: transparent !important;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #e4e8ef;
+    }
+
+    .navbar .container {
+      max-width: 1180px;
+    }
+
+    .navbar .navbar-brand {
+      font-size: 0.95rem !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.01em;
+    }
+
+    .navbar .brand-icon {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      min-height: 18px;
+    }
+
+    .navbar .brand-icon svg {
+      width: 10px;
+      height: 10px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 1.25rem;
+      padding: 0.9rem 1rem 1.2rem;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .sidebar {
+      padding: 0.15rem 0.35rem;
+      height: calc(100vh - 84px);
+      position: sticky;
+      top: 0.9rem;
+      overflow: auto;
+    }
+
+    .sidebar h2 {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #475569;
+      font-weight: 800;
+      margin: 0 0 0.55rem;
+      padding: 0 0.2rem;
+    }
+
+    .report-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .report-link {
+      display: block;
+      text-decoration: none;
+      color: var(--ink);
+      border: 1px solid #e1e7ef;
+      border-radius: 6px;
+      padding: 0.48rem 0.52rem;
+      transition: all .18s ease;
+      background: #fff;
+    }
+
+    .report-link:hover {
+      border-color: #a7f3e2;
+      background: #f3fdfb;
+    }
+
+    .report-link.active {
+      border-color: #80e6d2;
+      background: var(--accent-soft);
+    }
+
+    .report-link .title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0 0 0.16rem;
+    }
+
+    .report-link .meta {
+      font-size: 0.67rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .content-wrap {
+      min-height: calc(100vh - 98px);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .report-head {
+      border-bottom: 1px solid #eef2f7;
+      padding: 0.75rem 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.9rem;
+      background: #f8fafc;
+    }
+
+    .report-head h1 {
+      margin: 0;
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #334155;
+    }
+
+    .report-head .meta {
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+    }
+
+    .report-body {
+      padding: 1.2rem 1.3rem 2rem;
+      max-width: 880px;
+    }
+
+    .report-content h1,
+    .report-content h2,
+    .report-content h3,
+    .report-content h4 {
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: #0f172a;
+    }
+
+    .report-content h1 {
+      font-size: 1.45rem;
+      font-weight: 850;
+    }
+
+    .report-content h2 {
+      font-size: 1.03rem;
+      font-weight: 820;
+    }
+
+    .report-content h3 {
+      font-size: 0.93rem;
+      font-weight: 800;
+    }
+
+    .report-content p,
+    .report-content li {
+      font-size: 0.81rem;
+      line-height: 1.62;
+      color: #1f2937;
+      margin-bottom: 0.55rem;
+    }
+
+    .report-content ul,
+    .report-content ol {
+      margin-bottom: 0.7rem;
+    }
+
+    .report-content hr {
+      border: none;
+      border-top: 1px solid #e8edf3;
+      margin: 1.05rem 0;
+    }
+
+    .report-content blockquote {
+      border-left: 3px solid #14b8a6;
+      background: #f1faf8;
+      margin: 0.8rem 0;
+      padding: 0.55rem 0.7rem;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .report-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0 0.9rem;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid #dfe6ee;
+    }
+
+    .report-content th,
+    .report-content td {
+      border-bottom: 1px solid #e6ecf3;
+      padding: 0.45rem 0.55rem;
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.74rem;
+    }
+
+    .report-content th {
+      background: #f5f8fc;
+      font-weight: 800;
+    }
+
+    .report-content tr:last-child td {
+      border-bottom: none;
+    }
+
+    .report-content code {
+      background: #ecfeff;
+      border: 1px solid #bae6fd;
+      color: #0f766e;
+      padding: 0.08rem 0.24rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .report-content pre {
+      background: #0b1220;
+      color: #f8fafc;
+      border-radius: 8px;
+      padding: 0.7rem;
+      overflow: auto;
+    }
+
+    .report-content pre code {
+      background: transparent;
+      border: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    .report-content .report-image,
+    .report-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      display: block;
+      margin: 0.5rem 0 0.65rem;
+    }
+
+    .status-box {
+      border: 1px dashed #b6c1d1;
+      background: #f8fafc;
+      color: #334155;
+      border-radius: 8px;
+      padding: 0.72rem;
+      font-size: 0.84rem;
+    }
+
+    .status-box.error {
+      border-color: #fecaca;
+      background: #fff1f2;
+      color: #9f1239;
+    }
+
+    @media (max-width: 992px) {
+      .layout {
+        grid-template-columns: 1fr;
+        padding: 0.7rem;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+        padding: 0;
+      }
+
+      .content-wrap {
+        min-height: auto;
+      }
+
+      .report-body {
+        padding: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-white">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="/index.html">
+        <span class="brand-icon me-2">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="#fff" stroke-width="1.5" />
+            <path d="M8 12 Q12 7 16 12 Q12 17 8 12Z" fill="#fff" opacity="0.8" />
+          </svg>
+        </span>
+        JagoAlgo.id
+      </a>
+    </div>
+  </nav>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <h2>Penelitian</h2>
+      <ul class="report-list" id="reportList"></ul>
+    </aside>
+
+    <section class="content-wrap">
+      <div class="report-head">
+        <div>
+          <h1 id="reportTitle">Machine Learning Report</h1>
+          <div class="meta" id="reportMeta">Pilih report dari kiri atau gunakan parameter `?id=`.</div>
+        </div>
+      </div>
+      <div class="report-body">
+        <article class="report-content" id="reportContent">
+          <div class="status-box">Memuat report...</div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async function init() {
+      const reportListEl = document.getElementById('reportList');
+      const reportTitleEl = document.getElementById('reportTitle');
+      const reportMetaEl = document.getElementById('reportMeta');
+      const reportContentEl = document.getElementById('reportContent');
+      const params = new URLSearchParams(window.location.search);
+      const currentId = params.get('id');
+
+      function escapeHtml(value) {
+        return String(value ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function setStatus(message, isError = false) {
+        reportContentEl.innerHTML = `<div class="status-box ${isError ? 'error' : ''}">${escapeHtml(message)}</div>`;
+      }
+
+      function normalizeId(value) {
+        return /^[a-z0-9][a-z0-9-_]{1,120}$/i.test(value || '') ? value : null;
+      }
+
+      function renderList(reports, activeId) {
+        if (!Array.isArray(reports) || reports.length === 0) {
+          reportListEl.innerHTML = '<li><div class="status-box">Belum ada report.</div></li>';
+          return;
+        }
+
+        reportListEl.innerHTML = reports.map((item) => {
+          const activeClass = item.id === activeId ? 'active' : '';
+          return `
+            <li>
+              <a class="report-link ${activeClass}" href="/machine-learning-report.html?id=${encodeURIComponent(item.id)}">
+                <p class="title">${escapeHtml(item.title)}</p>
+                <p class="meta">${escapeHtml(item.date || '')}</p>
+              </a>
+            </li>
+          `;
+        }).join('');
+      }
+
+      function resolveAssetUrl(markdownUrl, rawUrl) {
+        if (!rawUrl) return rawUrl;
+        if (/^(https?:|data:|mailto:|#|\/)/i.test(rawUrl)) return rawUrl;
+        try {
+          return new URL(rawUrl, markdownUrl).toString();
+        } catch {
+          return rawUrl;
+        }
+      }
+
+      async function fetchCatalog() {
+        const res = await fetch('/data/ml-reports.json', { headers: { accept: 'application/json' } });
+        if (!res.ok) throw new Error('Gagal memuat katalog report');
+        return res.json();
+      }
+
+      async function loadReportMarkdown(reportItem) {
+        const mdPath = reportItem?.markdown || `/reports/${reportItem.id}.md`;
+        const res = await fetch(mdPath, { headers: { accept: 'text/markdown,text/plain' } });
+        if (!res.ok) throw new Error(`Markdown tidak ditemukan: ${mdPath}`);
+        const markdownText = await res.text();
+
+        const renderer = new marked.Renderer();
+        renderer.link = function ({ href, title, text }) {
+          const safeHref = resolveAssetUrl(mdPath, href);
+          const safeTitle = title ? ` title="${escapeHtml(title)}"` : '';
+          return `<a href="${escapeHtml(safeHref)}"${safeTitle} target="_blank" rel="noopener noreferrer">${text}</a>`;
+        };
+        renderer.image = function ({ href, title, text }) {
+          const safeSrc = resolveAssetUrl(mdPath, href);
+          const safeTitle = title ? ` title="${escapeHtml(title)}"` : '';
+          return `<img class="report-image" src="${escapeHtml(safeSrc)}" alt="${escapeHtml(text || '')}"${safeTitle} />`;
+        };
+
+        marked.setOptions({
+          gfm: true,
+          breaks: true,
+          headerIds: true,
+          mangle: false,
+          renderer
+        });
+
+        return marked.parse(markdownText);
+      }
+
+      try {
+        const catalog = await fetchCatalog();
+        const reports = Array.isArray(catalog?.reports) ? catalog.reports : [];
+        const firstReport = reports[0] || null;
+        const safeId = normalizeId(currentId) || firstReport?.id || null;
+        const selectedReport = reports.find((item) => item.id === safeId) || firstReport;
+
+        renderList(reports, selectedReport?.id || null);
+
+        if (!selectedReport) {
+          reportTitleEl.textContent = 'Machine Learning Report';
+          reportMetaEl.textContent = 'Belum ada report terdaftar di katalog.';
+          setStatus('Belum ada report yang dipublish. Tambahkan item di /data/ml-reports.json.');
+          return;
+        }
+
+        if (!currentId || currentId !== selectedReport.id) {
+          const newUrl = `/machine-learning-report.html?id=${encodeURIComponent(selectedReport.id)}`;
+          history.replaceState(null, '', newUrl);
+        }
+
+        reportTitleEl.textContent = selectedReport.title || selectedReport.id;
+        reportMetaEl.textContent = [selectedReport.date, selectedReport.author].filter(Boolean).join(' • ');
+
+        const html = await loadReportMarkdown(selectedReport);
+        reportContentEl.innerHTML = html;
+      } catch (error) {
+        reportTitleEl.textContent = 'Machine Learning Report';
+        reportMetaEl.textContent = 'Terjadi masalah saat membaca report.';
+        setStatus(error instanceof Error ? error.message : 'Unknown error', true);
+      }
+    })();
+  </script>
+</body>
+
+</html>
