@@ -224,8 +224,14 @@
         if (!rawUrl) return rawUrl;
         if (/^(https?:|data:|mailto:|#)/i.test(rawUrl)) return rawUrl;
         if (rawUrl.startsWith('/')) return rawUrl; // absolute path, biarkan
-        // relative path, kita asumsikan berada di /reports/
-        return `/reports/${rawUrl}`;
+        
+        // relative path, resolve terhadap direktori file markdown
+        const basePath = markdownBasePath.substring(0, markdownBasePath.lastIndexOf('/'));
+        let cleanUrl = rawUrl;
+        if (cleanUrl.startsWith('./')) {
+          cleanUrl = cleanUrl.substring(2);
+        }
+        return `${basePath}/${cleanUrl}`;
       }
 
       async function fetchCatalog() {
