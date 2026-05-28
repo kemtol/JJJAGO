@@ -1,12 +1,12 @@
 {
   "reports": [
     {
-      "id": "rekomendasi-berdasarkan-bsjp-2026-04-23",
-      "title": "Laporan Analisis Strategi BSJP - Evaluasi Dua Model Kandidat",
-      "date": "2026-04-23",
+      "id": "bsjp-v25-clean-2026-05-28",
+      "title": "Laporan Analisis Strategi BSJP - v25 Clean Model",
+      "date": "2026-05-28",
       "author": "Tim Riset Kuantitatif - BSJP Project",
-      "summary": "Perbandingan model Agresif vs Terkendali untuk strategi Beli Sore Jual Pagi di saham Indonesia.",
-      "markdown": "/reports/rekomendasi-berdasarkan-bsjp-2026-04-23/index.md"
+      "summary": "Hasil backtesting untuk model v25 dengan parameter t1quick, nl31, md100.",
+      "markdown": "/reports/bsjp-v25-clean-2026-05-28/index.md"
     },
     {
       "id": "rekomendasi-berdasarkan-bsjp-parameter-terbaik-grid-search-2026-04-24",
@@ -15,6 +15,14 @@
       "author": "Tim Riset Kuantitatif - BSJP Project",
       "summary": "Narasi pemahaman pipeline BSJP dan keputusan yang telah dibuat.",
       "markdown": "/reports/rekomendasi-berdasarkan-bsjp-parameter-terbaik-grid-search-2026-04-24/index.md"
+    },
+    {
+      "id": "rekomendasi-berdasarkan-bsjp-2026-04-23",
+      "title": "Laporan Analisis Strategi BSJP - Evaluasi Dua Model Kandidat",
+      "date": "2026-04-23",
+      "author": "Tim Riset Kuantitatif - BSJP Project",
+      "summary": "Perbandingan model Agresif vs Terkendali untuk strategi Beli Sore Jual Pagi di saham Indonesia.",
+      "markdown": "/reports/rekomendasi-berdasarkan-bsjp-2026-04-23/index.md"
     }
   ]
 }

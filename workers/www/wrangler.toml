@@ -8,8 +8,6 @@ bucket = "./public"
 [vars]
 GOAKAL_SCHOOL_ID = "jagoalgoid"
 
-[triggers]
-crons = ["0 * * * *"]
 
 [[kv_namespaces]]
 binding = "CLASSES_KV"
