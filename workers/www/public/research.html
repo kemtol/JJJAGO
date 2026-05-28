@@ -272,7 +272,7 @@
         if (reports.length) {
           reportListEl.innerHTML = reports.map(item => `
             <li>
-              <a class="report-link ${item.id === selectedReport?.id ? 'active' : ''}" href="/machine-learning-report.html?id=${encodeURIComponent(item.id)}">
+              <a class="report-link ${item.id === selectedReport?.id ? 'active' : ''}" href="/research.html?id=${encodeURIComponent(item.id)}">
                 <p class="title">${escapeHtml(item.title)}</p>
                 <p class="meta">${escapeHtml(item.date || '')}</p>
               </a>
@@ -290,7 +290,7 @@
         }
 
         if (!currentId || currentId !== selectedReport.id) {
-          history.replaceState(null, '', `/machine-learning-report.html?id=${encodeURIComponent(selectedReport.id)}`);
+          history.replaceState(null, '', `/research.html?id=${encodeURIComponent(selectedReport.id)}`);
         }
 
         reportTitleEl.textContent = selectedReport.title || selectedReport.id;
