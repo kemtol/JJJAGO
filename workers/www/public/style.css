@@ -45,7 +45,7 @@ body { background: #fff; color: #111; overflow-x: hidden; }
 .iframe-wrap iframe { flex: 1; border: none; width: 100%; }
 
 /* ── HERO ── */
-.hero { padding: 2rem; }
+/*.hero { padding: 2rem; }*/
 .hero h1 { font-size: 2.9rem; font-weight: 900; line-height: 1.13; letter-spacing: -0.5px; }
 .hero .sub { color: var(--gray); font-size: 1rem; line-height: 1.6; }
 .btn-cta { background:#6fcd75; color: #fff; border-radius: 50px; padding: 0.8rem 0.8rem 0.8rem 1.8rem; font-weight: 800; font-size: 1.05rem; border: none; display: inline-flex; align-items: center; gap: 12px; line-height: 1; transition: transform 0.15s, box-shadow 0.15s; }
