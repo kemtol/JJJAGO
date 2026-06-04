@@ -1,6 +1,14 @@
 {
   "reports": [
     {
+      "id": "nasdaq-micro-futures-orb-rule-based-v1-2026-06-01",
+      "title": "Strategi NASDAQ Micro Futures ORB - Rule-Based v1",
+      "date": "2026-06-01",
+      "author": "Tim Riset Kuantitatif - Futures Project",
+      "summary": "Evaluasi baseline Opening Range Breakout 15m long TP2R/EOD pada kontrak MNQ, termasuk audit SuperTrend dan short-switch.",
+      "markdown": "/reports/nasdaq-micro-futures-orb-rule-based-v1-2026-06-01/index.md"
+    },
+    {
       "id": "bsjp-v25-clean-2026-05-28",
       "title": "Laporan Analisis Strategi BSJP - v25 Clean Model",
       "date": "2026-05-28",
